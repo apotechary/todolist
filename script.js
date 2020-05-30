@@ -30,8 +30,6 @@ function createTaskListLi(todoText) {
     inputel.addEventListener("click", strikeThrough);
     i.addEventListener("click", removeDoneTasks)
 
-
-
     // create child elements
     span1.appendChild(inputel);
     span2.appendChild(i);
