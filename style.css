@@ -15,6 +15,40 @@ tr,th, td {
 }
 .strike {
     text-decoration: line-through;
-    background-color: grey;
-    color:#fff;
+    background-color: #cde7eb;
+    color:#000;
+}
+.row {
+    padding:0 20px 0 0;
+}
+.dropdown {
+    position: absolute;
+}
+
+.each-list {
+    display: inline-block;
+    word-break:break-all; /* wrap extended text*/
+}
+
+.tablee {
+    margin-top: 50px;
+}
+
+.title {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: fantasy;
+}
+
+.next-prev {
+    margin: 15px;
+}
+
+.lists {
+    padding: 20px;
+}
+
+body {
+    background: #f1edf1;
 }
