@@ -49,6 +49,10 @@ tr,th, td {
     padding: 20px;
 }
 
+.days {
+    text-align: center;
+}
+
 body {
     background: #f1edf1;
 }
