@@ -1,50 +1,22 @@
 "use strict";
-/*function letsDothis() {
-
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let daysOftheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    let numberofDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-    let result = "";
-    for (i = 0; i < numberofDays.length; i++) {
-        result += daysOftheWeek[6] + numberofDays[i]
-    }
-    return result;
-}
-*/
-function toDolist() {
-
-}
-
-function myFunction() {
-    $("#please").classList.toggle("show");
-
-};
-window.onclick = function (event) {
-    if (!event.target.matches(".dropbtn")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains("show")) {
-                openDropdown.classList.remove("show");
-            }
-        }
-    }
-}
-
 
 function addTaskList() {
-    var task = $("#task-todo").val();
+    var task = $("#task-todo").val().trim();
+    if (task === "") {
+        alert("please enter a task!");
+        return;
+    }
     var ul = $("#task-lists");
     var li = createTaskListLi(task);
     ul.append(li);
+    clearField();
 }
 
 
 function createTaskListLi(todoText) {
 
     var li = document.createElement("li");
-    li.setAttribute("class", "list-group-item");
+    li.setAttribute("class", "list-group-item each-list");
     var span1 = document.createElement("span");
     span1.setAttribute("class", "task-list");
     var span2 = document.createElement("span");
@@ -56,6 +28,7 @@ function createTaskListLi(todoText) {
     i.setAttribute("class", "fa fa-trash");
     var text = document.createTextNode(todoText);
     inputel.addEventListener("click", strikeThrough);
+    i.addEventListener("click", removeDoneTasks)
 
 
 
@@ -70,6 +43,7 @@ function createTaskListLi(todoText) {
 
 }
 function removeDoneTasks() {
+    $(this).closest("li").remove();
 
 }
 function strikeThrough(e) {
@@ -90,3 +64,6 @@ function strikeThrough(e) {
 
 }
 
+function clearField() {
+    document.getElementById("task-todo").value = "";
+}
