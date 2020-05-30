@@ -21,37 +21,36 @@
             <div class="col-sm-7">
                 <div class="container">
                     <div class="row">
-                        <h2>
-                            <div class="dropdown">
-                                <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Month
-                                </a>
+                        <div class="dropdown">
+                            <a class="btn btn-info dropdown-toggle" onclick="createTableBody()" role="button"
+                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                January
+                            </a>
 
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">January</a>
-                                    <a class="dropdown-item" href="#">February</a>
-                                    <a class="dropdown-item" href="#">March</a>
-                                    <a class="dropdown-item" href="#">April</a>
-                                    <a class="dropdown-item" href="#">May</a>
-                                    <a class="dropdown-item" href="#">June</a>
-                                    <a class="dropdown-item" href="#">July</a>
-                                    <a class="dropdown-item" href="#">August</a>
-                                    <a class="dropdown-item" href="#">September</a>
-                                    <a class="dropdown-item" href="#">October</a>
-                                    <a class="dropdown-item" href="#">November</a>
-                                    <a class="dropdown-item" href="#">December</a>
-                                </div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" onclick="createTableBody('jan')">January</a>
+                                <a class="dropdown-item" onclick="createTableBody('feb')">February</a>
+                                <a class="dropdown-item" onclick="createTableBody('mar')">March</a>
+                                <a class="dropdown-item" onclick="createTableBody('apr')">April</a>
+                                <a class="dropdown-item" onclick="createTableBody('may')">May</a>
+                                <a class="dropdown-item" onclick="createTableBody('jun')">June</a>
+                                <a class="dropdown-item" onclick="createTableBody('jul')">July</a>
+                                <a class="dropdown-item" onclick="createTableBody('aug')">August</a>
+                                <a class="dropdown-item" onclick="createTableBody('sep')">September</a>
+                                <a class="dropdown-item" onclick="createTableBody('oct')">October</a>
+                                <a class="dropdown-item" onclick="createTableBody('nov')">November</a>
+                                <a class="dropdown-item" onclick="createTableBody('dec')">December</a>
                             </div>
+                        </div>
+                        <div style="padding-left: 30%;">
+                            <h2 id="current-month"></h2>
+                        </div>
 
-
-
-                        </h2>
                     </div>
                     <div class="row">
                         <div class="tablee">
-                            <table class=" table table-striped">
-                                <thead>
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Sunday</th>
                                         <th scope="col">Monday</th>
@@ -63,69 +62,17 @@
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                        <td>9</td>
+                                <tbody id="table-body">
 
-                                    </tr>
-                                    <tr>
-
-                                        <td>10</td>
-                                        <td>11</td>
-                                        <td>12</td>
-                                        <td>13</td>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td>17</td>
-                                        <td>18</td>
-                                        <td>19</td>
-                                        <td>20</td>
-                                        <td>21</td>
-                                        <td>22</td>
-                                        <td>23</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td>24</td>
-                                        <td>25</td>
-                                        <td>26</td>
-                                        <td>27</td>
-                                        <td>28</td>
-                                        <td>29</td>
-                                        <td>30</td>
-                                    </tr>
-                                    <tr>
-                                        <td>31</td>
-                                    </tr>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                     <div class="row" style="margin-left: 120px;">
-                        <button type="button" class="btn btn-info btn-lg next-prev">Previous Month</button>
-                        <button type="button" class="btn btn-info btn-lg next-prev">Next Month</button>
+                        <button onclick="showPreviousOrNext('pre')" type="button"
+                            class="btn btn-info btn-lg next-prev">Previous Month</button>
+                        <button onclick="showPreviousOrNext('next')" type="button"
+                            class="btn btn-info btn-lg next-prev">Next Month</button>
                     </div>
                 </div>
 
@@ -172,6 +119,7 @@
             crossorigin="anonymous"></script>
 
         <script src="script.js"></script>
+        <script src="calander.js"></script>
 </body>
 
 </html>
