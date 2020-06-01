@@ -13,90 +13,80 @@
 </head>
 
 <body>
-    <h1 class="title">My Calendar</h1>
-
-
+    <h1 class="title">My 2020 Calendar</h1>
     <div class="container">
         <div class="row">
             <div class="col-sm-7">
-                <div class="container">
-                    <div class="row">
-                        <div class="dropdown">
-                            <a class="btn btn-info dropdown-toggle" onclick="createTableBody()" role="button"
-                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                January
-                            </a>
+                <div>
+                    <div class="dropdown">
+                        <a class="btn btn-info dropdown-toggle" onclick="createTableBody()" role="button"
+                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            January
+                        </a>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" onclick="createTableBody('jan')">January</a>
-                                <a class="dropdown-item" onclick="createTableBody('feb')">February</a>
-                                <a class="dropdown-item" onclick="createTableBody('mar')">March</a>
-                                <a class="dropdown-item" onclick="createTableBody('apr')">April</a>
-                                <a class="dropdown-item" onclick="createTableBody('may')">May</a>
-                                <a class="dropdown-item" onclick="createTableBody('jun')">June</a>
-                                <a class="dropdown-item" onclick="createTableBody('jul')">July</a>
-                                <a class="dropdown-item" onclick="createTableBody('aug')">August</a>
-                                <a class="dropdown-item" onclick="createTableBody('sep')">September</a>
-                                <a class="dropdown-item" onclick="createTableBody('oct')">October</a>
-                                <a class="dropdown-item" onclick="createTableBody('nov')">November</a>
-                                <a class="dropdown-item" onclick="createTableBody('dec')">December</a>
-                            </div>
-                        </div>
-                        <div style="padding-left: 30%;">
-                            <h2 id="current-month"></h2>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="tablee">
-                            <table class="table table-bordered">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Sunday</th>
-                                        <th scope="col">Monday</th>
-                                        <th scope="col">Tuesday</th>
-                                        <th scope="col">Wednesday</th>
-                                        <th scope="col">Thursday</th>
-                                        <th scope="col">Friday</th>
-                                        <th scope="col">Saturday</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody id="table-body">
-
-                                </tbody>
-                            </table>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" onclick="createTableBody('jan')">January</a>
+                            <a class="dropdown-item" onclick="createTableBody('feb')">February</a>
+                            <a class="dropdown-item" onclick="createTableBody('mar')">March</a>
+                            <a class="dropdown-item" onclick="createTableBody('apr')">April</a>
+                            <a class="dropdown-item" onclick="createTableBody('may')">May</a>
+                            <a class="dropdown-item" onclick="createTableBody('jun')">June</a>
+                            <a class="dropdown-item" onclick="createTableBody('jul')">July</a>
+                            <a class="dropdown-item" onclick="createTableBody('aug')">August</a>
+                            <a class="dropdown-item" onclick="createTableBody('sep')">September</a>
+                            <a class="dropdown-item" onclick="createTableBody('oct')">October</a>
+                            <a class="dropdown-item" onclick="createTableBody('nov')">November</a>
+                            <a class="dropdown-item" onclick="createTableBody('dec')">December</a>
                         </div>
                     </div>
-                    <div class="row" style="margin-left: 120px;">
-                        <button onclick="showPreviousOrNext('pre')" type="button"
-                            class="btn btn-info btn-lg next-prev">Previous Month</button>
-                        <button onclick="showPreviousOrNext('next')" type="button"
-                            class="btn btn-info btn-lg next-prev">Next Month</button>
-                    </div>
+                    <h2 id="current-month"></h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Sunday</th>
+                                <th scope="col">Monday</th>
+                                <th scope="col">Tuesday</th>
+                                <th scope="col">Wednesday</th>
+                                <th scope="col">Thursday</th>
+                                <th scope="col">Friday</th>
+                                <th scope="col">Saturday</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-left: 120px;">
+                    <button onclick="showPreviousOrNext('pre')" type="button" id="pre"
+                        class="btn btn-sm btn-info btn-lg next-prev">Previous Month</button>
+                    <button onclick="showPreviousOrNext('next')" type="button" id="next"
+                        class="btn btn-sm btn-info btn-lg next-prev">Next Month</button>
                 </div>
 
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 cal">
                 <h2>Today's list</h2>
-                <div class="container">
-                    <div class="row lists">
-                        <div class="input-group mb-3">
-                            <input id="task-todo" type="text" class="form-control"
-                                placeholder="What do you plan to acomplish today?" aria-label="Recipient's username"
-                                aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-info" type="button" id="button-addon2"
-                                    onclick="addTaskList()"> <i class="fa fa-plus"></i> </button>
-                            </div>
+                <div class=" lists">
+                    <div class="input-group mb-3">
+                        <input id="task-todo" type="text" class="form-control"
+                            placeholder="What do you plan to acomplish today?" aria-label="Recipient's username"
+                            aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-info" type="button" id="button-addon2"
+                                onclick="addTaskList()"> <i class="fa fa-plus"></i> </button>
                         </div>
                     </div>
-                    <div class="row lists">
-                        <ul class="list-group list-group-flush" id="task-lists">
+                </div>
+                <div class=" lists">
+                    <ul class="list-group list-group-flush" id="task-lists">
 
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
 
             </div>
@@ -120,6 +110,7 @@
 
         <script src="script.js"></script>
         <script src="calander.js"></script>
+        <script src="database.js"></script>
 </body>
 
 </html>
