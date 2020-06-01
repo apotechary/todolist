@@ -7,47 +7,72 @@ var infoOnEachMonths = {
     },
     "feb": {
         "starting": "sat",
-        "length": 29
+        "length": 29,
+        "pre": "jan",
+        "next": "mar"
     },
     "mar": {
         "starting": "sun",
-        "length": 31
+        "length": 31,
+        "pre": "feb",
+        "next": "apr"
     },
     "apr": {
         "starting": "wed",
-        "length": 30
+        "length": 30,
+        "pre": "mar",
+        "next": "may"
     },
     "may": {
         "starting": "wed",
-        "length": 31
+        "length": 31,
+        "pre": "apr",
+        "next": "jun"
     },
     "jun": {
         "starting": "mon",
-        "length": 30
+        "length": 30,
+        "pre": "may",
+        "next": 'jul'
+
     },
     "jul": {
         "starting": "wed",
-        "length": 31
+        "length": 31,
+        "pre": "jun",
+        "next": "aug"
     },
     "aug": {
         "starting": "sat",
-        "length": 31
+        "length": 31,
+        "pre": "jul",
+        "next": "sep"
     },
     "sep": {
         "starting": "tue",
-        "length": 30
+        "length": 30,
+        "pre": "aug",
+        "next": "oct"
+
+
     },
     "oct": {
         "starting": "thu",
-        "length": 31
+        "length": 31,
+        "pre": "sep",
+        "next": "nov"
     },
     "nov": {
         "starting": "sun",
-        "length": 30
+        "length": 30,
+        "pre": "oct",
+        "next": "dec",
     },
     "dec": {
         "starting": "tue",
-        "length": 31
+        "length": 31,
+        "pre": "nov",
+        "next": ""
     },
 };
 
@@ -76,35 +101,49 @@ var monthMap = {
     "dec": "december"
 }
 
+
+
 var defaultMonth = "jan";
+var defaultDate = "jan1";
+var defaultDateElement;
 
 createTableBody(defaultMonth);
 
-
-
-function showPreviousOrNext(choice) {
+showPreviousOrNext = (choice) => {
     if (choice === "pre") {
         var mon = infoOnEachMonths[defaultMonth]["pre"];
     } else {
         var mon = infoOnEachMonths[defaultMonth]["next"];
     }
+    var ul = $("#task-lists");
+    ul.empty();
+    createTableBody(mon);
 
-    if (mon !== "") {
-        createTableBody(mon);
+}
+
+function showPreNextButtons() {
+    if (infoOnEachMonths[defaultMonth]["pre"] === "") {
+        $('#pre').prop("disabled", true);
+    } else {
+        $('#pre').prop("disabled", false);
+    }
+    if (infoOnEachMonths[defaultMonth]["next"] === "") {
+        $('#next').prop("disabled", true);
+    } else {
+        $('#next').prop("disabled", false);
     }
 }
 
 function createTableBody(month) {
     defaultMonth = month;
+    showPreNextButtons();
     $('#current-month').text(monthMap[defaultMonth].toUpperCase());
 
     $('#dropdownMenuLink').text(monthMap[defaultMonth].toUpperCase());
 
-
-
-
     var tablebody = $("#table-body").empty();
     var startDate = dayToNum[infoOnEachMonths[month]["starting"]];
+
     var endDate = infoOnEachMonths[month]["length"];
     var counter = 1;
     var isFirstWeek = true;
@@ -138,10 +177,25 @@ function createTableBody(month) {
 
 function createTd(date) {
     var td = document.createElement("td");
-    td.setAttribute("class", "days")
+    if (date === "") {
+        td.setAttribute("disabled", "");
+    }
+
+
+    if (date === 1 && defaultMonth === "jan") {
+        td.setAttribute("id", "jan1");
+        td.setAttribute("class", "days selected");
+        defaultDateElement = td;
+    } else {
+        td.setAttribute("id", "box");
+        td.setAttribute("class", "days");
+    }
     var text = document.createTextNode(date);
     td.appendChild(text);
 
+    td.addEventListener("click", getTaskList);
+
     return td;
 }
+
 
