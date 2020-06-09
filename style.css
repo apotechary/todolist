@@ -1,9 +1,34 @@
-h2 {
-    text-align: center;
-  
+body {
+    background-image: url("betterwood.jpg");
+    background-size:cover;
 }
-tr,th, td {
-    border: 1px solid black;
+h1 {
+    text-align: center;
+    font-family: cursive;
+    margin-top: 23px;
+}
+h2,h3 {
+    font-family: cursive;
+    font-size:42px;
+    background-color: #47adad;
+    
+}
+.btn-secondary {
+    background-color: #47adad;
+    color: black;
+}
+#button-addon2 {
+    background-color: #47adad;
+}
+.form-control {
+    background-color:#47adad;
+}
+.container {
+    margin-top: 32px;
+    padding-top:55px ;
+}
+.calendar {
+    text-align: center;
 
 }
 .dropdown hover {
@@ -17,4 +42,23 @@ tr,th, td {
     text-decoration: line-through;
     background-color: grey;
     color:#fff;
+}
+.fa {
+    padding-left: 13px;
+    text-align: left;
+}
+th {
+    background-color:#47adad;
+}
+
+  .list-group-item {
+    
+    text-align: left;
+  }
+  .prev {
+      margin-top: 83px;
+  }
+.prevNext {
+    margin-bottom:12px;
+    margin-top: -58px;
 }
