@@ -1,5 +1,5 @@
 
-
+//$("#myCalendar").remove();
 
 let monthInfo = {
     "jan": {
@@ -122,9 +122,11 @@ let dayOftheweek = {
 
 
 var currentMonth = "jan";
+var monbif = monthInfo[currentMonth]["prev"];
+var monafter = monthInfo[currentMonth]["next"];
 
-
-function defaultMonth(mon) {
+function createCalendar(mon) {
+    $("#table-body").empty();
     let lastDate = monthInfo[mon]["enddate"]
     let countS = dayOftheweek[monthInfo[mon]["startdate"]]
     var count = 1;
@@ -151,37 +153,59 @@ function defaultMonth(mon) {
                 break
             }
         }
-        // showPrevNext(currentMonth);
 
     }
+    var showT = months[currentMonth].toUpperCase();
+    document.getElementById("theMonth").innerText = showT;
+    document.getElementById("display").innerText = showT.slice(0, 3);
+    document.getElementById("dropdownMenuLink").innerText = showT;
 }
-defaultMonth(currentMonth);
+createCalendar(currentMonth);
 
-function monthFromDropDown() {
+function monthFromDropDown(e) {
+    var monthDrop = e.target.text.slice(0, 3).toLowerCase();
+    console.log(monthDrop);
+    console.log(showT);
+    createCalendar(monthDrop);
 
-    title = $(event.target).closest('element-row').find('.dropdown-item');
-    var comeThrough = title.prevObject.prevObject[0].text
-    var stringForm = " " + comeThrough
-    var toGetmonth = stringForm.slice(0, 4);
-    var finaLly = toGetmonth[months]
-    alert(finaLly);
+    currentMonth = monthDrop;
+    monbif = monthInfo[currentMonth]["prev"];
+    monafter = monthInfo[currentMonth]["next"];
+    var showT = months[currentMonth].toUpperCase();
+    document.getElementById("theMonth").innerText = showT;
+    document.getElementById("display").innerText = showT.slice(0, 3);
+    document.getElementById("dropdownMenuLink").innerText = showT;
+    /* title = $(event.target).closest('element-row').find('.dropdown-item');
+     var comeThrough = title.prevObject.prevObject[0].text
+     var stringForm = " " + comeThrough
+     var toGetmonth = stringForm.slice(0, 4);
+     var finaLly = toGetmonth[months]
+     */
 
 
 }
 
-// event.target.value
-
-
-/*function showPrevNext(choice) {
-    var monbif = months[monthInfo[choice]["prev"]];
-    var monafter = months[monthInfo[choice]["next"]];
-    if (choice === monbif) {
-        currentMonth === monbif
-    } else (choice === monafter) {
-        currentMonth === monafter
-    } */
 
 
 
+function showPrevNext(choice) {
+    if (choice === "") {
+        return;
+    } else if (choice === monbif) {
+        createCalendar(choice);
+        currentMonth = choice;
+        monbif = monthInfo[currentMonth]["prev"];
+        monafter = monthInfo[currentMonth]["next"];
 
+    } else {
+        createCalendar(monafter)
+        currentMonth = choice;
+        monbif = monthInfo[currentMonth]["prev"];
+        monafter = monthInfo[currentMonth]["next"];
+    }
+    var showT = months[currentMonth].toUpperCase();
+    document.getElementById("theMonth").innerText = showT;
+    document.getElementById("display").innerText = showT.slice(0, 3);
+    document.getElementById("dropdownMenuLink").innerText = showT;
 
+}
