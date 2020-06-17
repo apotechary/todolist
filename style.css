@@ -12,16 +12,23 @@ h2,h3 {
     font-size:42px;
     background-color: #47adad;
     
+    
+}
+h2,h3, .form-control, #button-addon2:hover {
+    opacity: 0.6;
 }
 .btn-secondary {
     background-color: #47adad;
+    
     color: black;
 }
 #button-addon2 {
     background-color: #47adad;
+    
 }
 .form-control {
     background-color:#47adad;
+    
 }
 .container {
     margin-top: 32px;
@@ -49,6 +56,7 @@ h2,h3 {
 }
 th {
     background-color:#47adad;
+    
 }
 
   .list-group-item {
@@ -61,4 +69,7 @@ th {
 .prevNext {
     margin-bottom:12px;
     margin-top: -58px;
+}
+table {
+    opacity: 0.7;
 }
