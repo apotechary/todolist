@@ -4,7 +4,7 @@ function displayToday() {
 }
 
 function addListToday() {
-    $("myCalendar").empty();
+    // $("myCalendar").empty();
     var insideText = document.getElementById("typedItem").value;
 
     var text = document.createElement("li");
@@ -34,6 +34,7 @@ function addListToday() {
     check.addEventListener("click", strikeThrough)
     removeEntry();
     displayToday();
+    insertTodo();
 }
 function strikeThrough() {
     $(this).closest("li").toggleClass("strike");
@@ -54,3 +55,42 @@ function displayToday() {
 
 }
 displayToday();
+
+let todos = [];
+//var todoInput = document.getElementById("listed");
+
+
+function insertTodo() {
+
+    //addListToday();
+    todos.push(document.getElementById("listed"));
+    //todoItems = todoItems.push(todoInput);
+}
+
+
+function clearTodo(myNode) {
+
+    var node = document.getElementById("theInput");
+    while (node.firstChild) {
+        node.removeChild(myNode.firstChild);
+    }
+}
+const container = document.querySelector("#theInput");
+clearTodo(container);
+
+function saveTodos() {
+    var str = JSON.stringify(todos);
+    localStorage.setItem("todos", str);
+
+
+}
+// to get data from local storage
+function getTodos() {
+    var str = localStorage.getItem("todos");
+    todos = JSON.parse(str);
+    var magic = str.value;
+    alert(magic);
+    if (!todos) {
+        todos = []
+    }
+}
