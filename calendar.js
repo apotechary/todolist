@@ -159,6 +159,7 @@ function createCalendar(mon) {
     document.getElementById("theMonth").innerText = showT;
     document.getElementById("display").innerText = showT.slice(0, 3);
     document.getElementById("dropdownMenuLink").innerText = showT;
+    todoManuver();
 }
 createCalendar(currentMonth);
 
@@ -181,11 +182,9 @@ function monthFromDropDown(e) {
      var toGetmonth = stringForm.slice(0, 4);
      var finaLly = toGetmonth[months]
      */
-
+    todoManuver();
 
 }
-
-
 
 
 function showPrevNext(choice) {
@@ -207,5 +206,27 @@ function showPrevNext(choice) {
     document.getElementById("theMonth").innerText = showT;
     document.getElementById("display").innerText = showT.slice(0, 3);
     document.getElementById("dropdownMenuLink").innerText = showT;
+    todoManuver();
+
 
 }
+
+window.addEventListener("click", function todoPlusDate(e) {
+    console.log(e.target);
+})
+
+
+function todoManuver() {
+    $("td").click(function (e) {
+
+
+        var txt = $(e.target).text();
+        console.log(txt);
+        saveTodos()
+        clearTodo(container)
+        getTodos()
+
+    });
+
+}
+todoManuver();
