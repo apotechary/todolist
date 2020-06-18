@@ -121,7 +121,7 @@ let dayOftheweek = {
 
 
 
-var currentMonth = "jan";
+var currentMonth = "jun";
 var monbif = monthInfo[currentMonth]["prev"];
 var monafter = monthInfo[currentMonth]["next"];
 
