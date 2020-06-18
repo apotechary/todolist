@@ -49,12 +49,10 @@ function removeEvent(e) {
     let li = e.target.closest("li");
     $(this).closest('li').remove();
 }
-function displayToday() {
-    var zare = new Date().toDateString();
-    document.getElementById("todays").innerHTML = zare;
+var currentday = { weekday: "short", month: "short", day: "numeric" };
+var today = new Date();
+document.getElementById("todays").innerHTML = today.toLocaleDateString("en-US", currentday);
 
-}
-displayToday();
 
 let todos = [];
 //var todoInput = document.getElementById("listed");
