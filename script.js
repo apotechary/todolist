@@ -7,9 +7,9 @@ function getTaskList(e) {
     ul.empty();
 
     var td = e.target;
-    console.log('before', defaultDateElement.classList)
+    //console.log('before', defaultDateElement.classList)
     defaultDateElement.classList.remove("selected");
-    console.log('after', defaultDateElement.classList)
+    //console.log('after', defaultDateElement.classList)
     defaultDateElement = td;
     td.setAttribute("class", "selected");
 
